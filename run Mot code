@@ -1,0 +1,2 @@
+python demo/mot_demo.py     demo/2d_rect_cam0_0_871.jpg     configs/sort/sort_faster-rcnn_r50_fpn_8xb2-4e_mot17halftrain_test-mot17halfval.py     --detector     https://download.openmmlab.com/mmtracking/mot/faster_rcnn/faster-rcnn_r50_fpn_4e_mot17-half-64ee2ed4.pth --device cpu --out demo/mot
+
