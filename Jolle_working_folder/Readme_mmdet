@@ -1,0 +1,20 @@
+Open 1_make_json.py: 
+- Rechtermuisknop op Dataset_selection, copy path, dit plakken in line 5
+- Rechtermuisknop op mmdetection, copy path, dit plakken in line 3
+- Maak mapje det_output in je eigen working folder
+- Rechtermuisknop op je net gemaakte folder det_output, copy path, plakken line 6
+Sla 1_open_make_json.py op
+
+Open 2_cut_bounding_box.py
+- Rechtermuisknop op Dataset_selection, copy path, dit plakken in line 7
+- Maak mapje cut_out_bb in je eigen working folder
+- Ga in det_output en rechtermuisknop op preds, copy path, plakken in line 17
+Sla 2_cut_bounding_box.py op
+
+
+Ga naar terminal (kan in VSCode terminal) en doe 1 voor 1 deze commands:
+- conda activate openmmlab
+- pip install Pillow
+- python 1_make_json.py (dit duurt even)
+- python 2_cut_bounding_box.py
+
