@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 import os
 import numpy as np
 
-from config import get_mmpose_setup, print_separator
+from config import get_mmpose_setup, print_separator, get_vis_setup
 
 from mmcv.image import imread
 from mmengine.logging import print_log
@@ -12,54 +12,23 @@ from mmpose.apis import inference_topdown, init_model
 from mmpose.registry import VISUALIZERS
 from mmpose.structures import merge_data_samples
 
+draw_heatmap, show_kpt_idx, skeleton_style, kpt_thr, radius, thickness, alpha, save_kpt_score, show, device = get_vis_setup()
 
 def parse_args():
     parser = ArgumentParser()
-    parser.add_argument('--img', default=image_file, help='Image file')
-    parser.add_argument('--output_folder', default=output_path, help='Output folder')
-    parser.add_argument('--config', default=config_file, help='Config file')
-    parser.add_argument('--checkpoint', default=checkpoint_file, help='Checkpoint file')
-    parser.add_argument('--out-file', default=None, help='Path to output file')
-    parser.add_argument(
-        '--device', default='cpu', help='Device used for inference')
-    parser.add_argument(
-        '--draw-heatmap',
-        default=False,
-        action='store_true',
-        help='Visualize the predicted heatmap')
-    parser.add_argument(
-        '--show-kpt-idx',
-        action='store_true',
-        default=False,
-        help='Whether to show the index of keypoints')
-    parser.add_argument(
-        '--skeleton-style',
-        default='coco',
-        type=str,
-        choices=['mmpose', 'openpose'],
-        help='Skeleton style selection')
-    parser.add_argument(
-        '--kpt-thr',
-        type=float,
-        default=0.3,
-        help='Visualizing keypoint thresholds')
-    parser.add_argument(
-        '--radius',
-        type=int,
-        default=0,
-        help='Keypoint radius for visualization')
-    parser.add_argument(
-        '--thickness',
-        type=int,
-        default=1,
-        help='Link thickness for visualization')
-    parser.add_argument(
-        '--alpha', type=float, default=0.8, help='The transparency of bboxes')
-    parser.add_argument(
-        '--show',
-        action='store_true',
-        default=False,
-        help='whether to show img')
+    parser.add_argument('--img', default=image_file)
+    parser.add_argument('--output_folder', default=output_path)
+    parser.add_argument('--config', default=config_file)
+    parser.add_argument('--checkpoint', default=checkpoint_file)
+    parser.add_argument('--device', default=device)
+    parser.add_argument('--draw-heatmap',default=draw_heatmap)
+    parser.add_argument('--show-kpt-idx',default=show_kpt_idx)
+    parser.add_argument('--skeleton-style',default=skeleton_style)
+    parser.add_argument('--kpt-thr',type=float,default=kpt_thr)
+    parser.add_argument('--radius',type=int,default=radius)
+    parser.add_argument('--thickness',type=int,default=thickness)
+    parser.add_argument('--alpha', type=float, default=alpha)
+    parser.add_argument('--show',action='store_true',default=show)
     args = parser.parse_args()
     return args
 
@@ -73,11 +42,7 @@ def run_pose_estimation(img_file, config_file, checkpoint_file, out_file='result
     else:
         cfg_options = None
 
-    model = init_model(
-        args.config,
-        args.checkpoint,
-        device=args.device,
-        cfg_options=cfg_options)
+    model = init_model(args.config,args.checkpoint,device=args.device,cfg_options=cfg_options)
 
     # init visualizer
     model.cfg.visualizer.radius = args.radius
@@ -85,21 +50,24 @@ def run_pose_estimation(img_file, config_file, checkpoint_file, out_file='result
     model.cfg.visualizer.line_width = args.thickness
 
     visualizer = VISUALIZERS.build(model.cfg.visualizer)
-    visualizer.set_dataset_meta(
-        model.dataset_meta, skeleton_style=args.skeleton_style)
+    visualizer.set_dataset_meta(model.dataset_meta, skeleton_style=args.skeleton_style)
 
     # inference a single image
     batch_results = inference_topdown(model, args.img)
     results = merge_data_samples(batch_results)
 
     pred_instances = batch_results[0].pred_instances
+    indices = batch_results[0].flip_indices
     
     keypoints = pred_instances.keypoints
-    keypoint_scores = pred_instances.keypoint_scores # these are not saved but could be
-    keypoints_vis = pred_instances.keypoints_visible # these are not saved but could be
+    keypoint_scores = pred_instances.keypoint_scores
 
     filename_clean = filename.split('.')[0]
-    np.save(f'{pose_npy_pred_out}/{filename_clean}.npy', keypoints)
+    np.save(f'{pose_npy_pred_out}/{filename_clean}_kpts.npy', keypoints)
+    np.save(f'{pose_npy_pred_out}/{filename_clean}_indices.npy', indices)
+    
+    if save_kpt_score:
+        np.save(f'{pose_npy_pred_out}/{filename_clean}_kpt_scores.npy', keypoint_scores)
         
     # show the results
     img = imread(args.img, channel_order='rgb')
