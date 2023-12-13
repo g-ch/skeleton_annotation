@@ -2,3 +2,9 @@ Ayoub_working_folder
 Fatih_working folder
 Jim_workiing_folder
 Jolle_working_folder
+Pipeline/0_input_dataset
+Pipeline/1_detection
+Pipeline/2_cut_out_bb
+Pipeline/3_pose_annotation
+Pipeline/4_labelme_readables
+Pipeline/__pycache__

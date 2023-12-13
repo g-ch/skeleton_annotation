@@ -48,6 +48,9 @@ alpha = 1.0                   # The transparency of bboxes (between 0.0 and 1.0)
 show = False                  # Whether to show img during processing
 save_kpt_score = False        # Whether to save the numpy array of keypoint scores
 
+# LabelMe
+add_skeleton = True           # If False, wil only print the keypoints in LabelMe. True adds keypoint connection
+
 
 ##############################################################################################################################
 ##############################################################################################################################
@@ -92,11 +95,13 @@ def get_vis_setup():
     return draw_heatmap, show_kpt_idx, skeleton_style, kpt_thr, radius, thickness, alpha, save_kpt_score, show, device
 
 def get_json_setup():
-    base_labelme = get_directory_path('good_labelme.json')
+    base_path = os.path.dirname(__file__)  
+    full_labelme = os.path.join(base_path, 'skltn_labelme.json')
+    base_labelme = os.path.join(base_path, 'kpt_labelme.json')
     cut_out_bb = get_directory_path('2_cut_out_bb')
     pose_npy_pred_out = get_directory_path('3_pose_annotation/preds_npy')
     output_labelme = get_directory_path('4_labelme_readables')
-    return cut_out_bb, pose_npy_pred_out, base_labelme, output_labelme
+    return cut_out_bb, pose_npy_pred_out, base_labelme, full_labelme, output_labelme, add_skeleton
 
 def get_detection_model():
     return detection_model, device
