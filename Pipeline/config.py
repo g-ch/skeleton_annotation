@@ -40,13 +40,13 @@ checkpoint_file = 'https://download.openmmlab.com/mmpose/v1/body_2d_keypoint/int
 # More options for visualisation of pose estimation
 draw_heatmap = False          # Visualize the predicted heatmap
 show_kpt_idx = True           # Whether to show the index of keypoints
-skeleton_style = 'mmpose'     # Skeleton style selection, can be 'openpose' too
+skeleton_style = 'mmpose'     # Skeleton style selection, can be 'openpose' or 'mmpose'
 kpt_thr = 0.3                 # Visualizing keypoint thresholds
 radius = 2                    # Keypoint radius for visualization in pixels
 thickness = 1                 # Link thickness for visualization in pixels
 alpha = 1.0                   # The transparency of bboxes (between 0.0 and 1.0)
 show = False                  # Whether to show img during processing
-save_kpt_score = False        # Whether to save the numpy array of keypoint scores
+save_kpt_score = False        # Whether to save the numpy arrays of keypoint scores and indices
 
 # LabelMe
 add_skeleton = True           # If False, wil only print the keypoints in LabelMe. True adds keypoint connection
@@ -101,7 +101,7 @@ def get_json_setup():
     cut_out_bb = get_directory_path('2_cut_out_bb')
     pose_npy_pred_out = get_directory_path('3_pose_annotation/preds_npy')
     output_labelme = get_directory_path('4_labelme_readables')
-    return cut_out_bb, pose_npy_pred_out, base_labelme, full_labelme, output_labelme, add_skeleton
+    return cut_out_bb, pose_npy_pred_out, base_labelme, full_labelme, output_labelme, add_skeleton, save_kpt_score
 
 def get_detection_model():
     return detection_model, device

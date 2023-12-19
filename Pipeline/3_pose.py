@@ -64,10 +64,11 @@ def run_pose_estimation(img_file, config_file, checkpoint_file, out_file='result
 
     filename_clean = filename.split('.')[0]
     np.save(f'{pose_npy_pred_out}/{filename_clean}_kpts.npy', keypoints)
-    np.save(f'{pose_npy_pred_out}/{filename_clean}_indices.npy', indices)
     
     if save_kpt_score:
+        np.save(f'{pose_npy_pred_out}/{filename_clean}_indices.npy', indices)
         np.save(f'{pose_npy_pred_out}/{filename_clean}_kpt_scores.npy', keypoint_scores)
+        print('Saved the keypoint scores and indices')
         
     # show the results
     img = imread(args.img, channel_order='rgb')

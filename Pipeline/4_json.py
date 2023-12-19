@@ -12,7 +12,7 @@ import copy
 from pathlib import Path
 from config import get_json_setup, print_separator
 
-cut_out_bb, folder_path, good_label_me_file_path, full_label_me, output_folder, add_skeleton = get_json_setup()
+cut_out_bb, folder_path, good_label_me_file_path, full_label_me, output_folder, add_skeleton, save_kpt_score = get_json_setup()
 
 # Function definitions
 def encodeImageForJson(image):
@@ -144,8 +144,11 @@ try:
                 
             # Load the .npy files
             numpy_data_kpts = np.load(file_path)
-            indices_path = os.path.join(folder_path, filename.replace("_kpts.npy", "_indices.npy"))
-            numpy_data_indices = np.load(indices_path)
+            if save_kpt_score:
+                indices_path = os.path.join(folder_path, filename.replace("_kpts.npy", "_indices.npy"))
+                numpy_data_indices = np.load(indices_path)
+            else:
+                numpy_data_indices = None
 
             # Check if the image file exists for the current npy array of keypoints
             if os.path.exists(image_path):
