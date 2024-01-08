@@ -25,6 +25,9 @@ def encodeImageForJson(image):
     return encData
 
 def create_output_file(filename, data):
+    if inaccurate:
+        filename = '_<17kpts_' + filename
+
     # File path where you want to save the JSON file
     json_file_path = f'{output_folder}/{filename.replace("_kpts.npy", "")}.json'
 
@@ -32,7 +35,7 @@ def create_output_file(filename, data):
     with open(json_file_path, 'w') as file:
         json.dump(data, file, indent=4)
         
-    print('Succesfully created LabelMe Readable JSON file at ', json_file_path)
+    print('Succesfully created LabelMe Readable JSON file at ', json_file_path, '\n')
     return
 
 def change_json(numpy_data_kpts, numpy_data_indices, image_path):
@@ -125,6 +128,10 @@ def change_json(numpy_data_kpts, numpy_data_indices, image_path):
 
     return new_json
 
+def remove_prefix(s, prefix='_<17kpts_'):
+    if s.startswith(prefix):
+        return s[len(prefix):]
+    return s
 
 # Main processing logic
 try:
@@ -140,6 +147,13 @@ try:
         if filename.endswith('_kpts.npy'):
             # Construct full file path
             file_path = os.path.join(folder_path, filename)
+            
+            inaccurate = False
+            if filename.startswith('_<17kpts_'):
+                print('Warning! This file has less than 17 predicted keypoints; LabelMe file will likely have inaccurate keypoints!')
+                filename = remove_prefix(filename)
+                inaccurate = True
+                
             image_path = os.path.join(cut_out_bb, f'{filename.replace("_kpts.npy", "")}.jpg')
                 
             # Load the .npy files
@@ -152,12 +166,12 @@ try:
 
             # Check if the image file exists for the current npy array of keypoints
             if os.path.exists(image_path):
-                print(f'\nMatching IMG file found in {image_path}')
+                print(f'Matching IMG file found in {image_path}')
                 # image_path, numpy_data en base_data
                 new_dict = change_json(numpy_data_kpts, numpy_data_indices, image_path)
                 create_output_file(filename, new_dict)
             else:
-                print(f"Warning: No corresponding image file found for {filename}.npy")
+                print(f"Warning: No corresponding image file found for {filename}")
     print_separator()
 except Exception as e:
     print(f"Error occurred: {e}")

@@ -32,16 +32,16 @@ det_threshold = 0.8
 detection_model = 'mask-rcnn_r101-syncbn-gcb-r16-c3-c5_fpn_1x_coco'
 
 # pose detection configuration file for Neural Network
-config_file = f'{mmpose_folder}/configs/body_2d_keypoint/integral_regression/coco/ipr_res50_debias-8xb64-210e_coco-256x256.py'
+config_file = f'{mmpose_folder}/configs/body_2d_keypoint/topdown_regression/coco/td-reg_res152_rle-8xb64-210e_coco-256x192.py'
 
 # trained state of pose detection model
-checkpoint_file = 'https://download.openmmlab.com/mmpose/v1/body_2d_keypoint/integral_regression/coco/ipr_res50_debias-8xb64-210e_coco-256x256-055a7699_20220913.pth'
+checkpoint_file = 'https://download.openmmlab.com/mmpose/top_down/deeppose/deeppose_res152_coco_256x192_rle-c05bdccf_20220615.pth'
 
 # More options for visualisation of pose estimation
 draw_heatmap = False          # Visualize the predicted heatmap
-show_kpt_idx = True           # Whether to show the index of keypoints
+show_kpt_idx = False           # Whether to show the index of keypoints
 skeleton_style = 'mmpose'     # Skeleton style selection, can be 'openpose' or 'mmpose'
-kpt_thr = 0.3                 # Visualizing keypoint thresholds
+kpt_thr = 0.7                 # Visualizing keypoint thresholds
 radius = 2                    # Keypoint radius for visualization in pixels
 thickness = 1                 # Link thickness for visualization in pixels
 alpha = 1.0                   # The transparency of bboxes (between 0.0 and 1.0)

@@ -61,9 +61,22 @@ def run_pose_estimation(img_file, config_file, checkpoint_file, out_file='result
     
     keypoints = pred_instances.keypoints
     keypoint_scores = pred_instances.keypoint_scores
-
+    
     filename_clean = filename.split('.')[0]
-    np.save(f'{pose_npy_pred_out}/{filename_clean}_kpts.npy', keypoints)
+
+    counter = 0
+    print('keypoint scores', keypoint_scores[0])
+    for score in keypoint_scores[0]:
+        if score < args.kpt_thr:
+            counter += 1
+    print('count ',counter)
+            
+    if counter > 0:
+        np.save(f'{pose_npy_pred_out}/_<17kpts_{filename_clean}_kpts.npy', keypoints)
+        print(f"\nWarning! Less than 17 keypoints with certainty at least {args.kpt_thr} found\n")
+    else:
+        print('17keypoints detected')
+        np.save(f'{pose_npy_pred_out}/{filename_clean}_kpts.npy', keypoints)
     
     if save_kpt_score:
         np.save(f'{pose_npy_pred_out}/{filename_clean}_indices.npy', indices)
