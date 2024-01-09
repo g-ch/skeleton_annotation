@@ -12,7 +12,8 @@ from mmpose.apis import inference_topdown, init_model
 from mmpose.registry import VISUALIZERS
 from mmpose.structures import merge_data_samples
 
-draw_heatmap, show_kpt_idx, skeleton_style, kpt_thr, radius, thickness, alpha, save_kpt_score, show, device = get_vis_setup()
+draw_heatmap, show_kpt_idx, skeleton_style, kpt_thr, radius, thickness, alpha, save_kpt_score, show, device, mmpose_folder = get_vis_setup()
+os.chdir(mmpose_folder)
 
 def parse_args():
     parser = ArgumentParser()
@@ -65,17 +66,16 @@ def run_pose_estimation(img_file, config_file, checkpoint_file, out_file='result
     filename_clean = filename.split('.')[0]
 
     counter = 0
-    print('keypoint scores', keypoint_scores[0])
+    # print('keypoint scores', keypoint_scores[0])
     for score in keypoint_scores[0]:
         if score < args.kpt_thr:
             counter += 1
-    print('count ',counter)
             
     if counter > 0:
         np.save(f'{pose_npy_pred_out}/_<17kpts_{filename_clean}_kpts.npy', keypoints)
-        print(f"\nWarning! Less than 17 keypoints with certainty at least {args.kpt_thr} found\n")
+        print(f"\nWarning! Found {counter} keypoints with certainty less than {args.kpt_thr}")
     else:
-        print('17keypoints detected')
+        print('17 keypoints detected')
         np.save(f'{pose_npy_pred_out}/{filename_clean}_kpts.npy', keypoints)
     
     if save_kpt_score:
@@ -100,7 +100,7 @@ def run_pose_estimation(img_file, config_file, checkpoint_file, out_file='result
 
     if args.out_file is not None:
         print_log(
-            f'the output image has been saved at {args.output_folder}',
+            f'the output image has been saved at {args.output_folder}\n',
             logger='current',
             level=logging.INFO)
 

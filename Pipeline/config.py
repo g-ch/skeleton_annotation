@@ -41,7 +41,7 @@ checkpoint_file = 'https://download.openmmlab.com/mmpose/top_down/deeppose/deepp
 draw_heatmap = False          # Visualize the predicted heatmap
 show_kpt_idx = False           # Whether to show the index of keypoints
 skeleton_style = 'mmpose'     # Skeleton style selection, can be 'openpose' or 'mmpose'
-kpt_thr = 0.7                 # Visualizing keypoint thresholds
+kpt_thr = 0.5                 # Visualizing keypoint thresholds
 radius = 2                    # Keypoint radius for visualization in pixels
 thickness = 1                 # Link thickness for visualization in pixels
 alpha = 1.0                   # The transparency of bboxes (between 0.0 and 1.0)
@@ -92,7 +92,7 @@ def get_mmpose_setup():
     return config_file, checkpoint_file, pose_vis_out, pose_npy_pred_out, cut_out_bb
 
 def get_vis_setup():
-    return draw_heatmap, show_kpt_idx, skeleton_style, kpt_thr, radius, thickness, alpha, save_kpt_score, show, device
+    return draw_heatmap, show_kpt_idx, skeleton_style, kpt_thr, radius, thickness, alpha, save_kpt_score, show, device, mmpose_folder
 
 def get_json_setup():
     base_path = os.path.dirname(__file__)  
