@@ -22,7 +22,7 @@ Skeleton Annotation is a customizable pipeline designed for annotating human ske
 </p>
 
 <p align="center">
-  On th eleft the original image and on the right the visualisation of the object/person detection 
+  On the left the original image and on the right the visualisation of the object/person detection 
 </p>
 
 <p align="center">
