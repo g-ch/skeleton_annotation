@@ -17,19 +17,23 @@ Skeleton Annotation is a customizable pipeline designed for annotating human ske
 - **LabelMe Integration**: Export pose annotations to LabelMe format for manual adjustments.
 
 <p align="center">
-  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/228a7489-5fee-4912-be95-6b828ba524ea" width="400" />
-  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/e1b0d790-6835-4257-8c42-ae0a24f477f9" width="400" /> 
-</p>
-<p align="center">
-  ### Original image and object/person detection 
+  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/228a7489-5fee-4912-be95-6b828ba524ea" width="300" />
+  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/e1b0d790-6835-4257-8c42-ae0a24f477f9" width="300" /> 
 </p>
 
 <p align="center">
-  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/30b797d3-5ed0-4138-a384-f7ea27d04681" width="300" />
-  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/855c3d25-10e6-43a6-ac45-478d20d392df" width="300" /> 
-  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/d82d13c6-a989-42a6-9e24-317bb3a9518f" width="300" />
+  On th eleft the original image and on the right the visualisation of the object/person detection 
 </p>
-### input image for pose estimation, pose estimation and converted to LabelMe format
+
+<p align="center">
+  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/30b797d3-5ed0-4138-a384-f7ea27d04681" width="200" />
+  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/855c3d25-10e6-43a6-ac45-478d20d392df" width="200" /> 
+  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/d82d13c6-a989-42a6-9e24-317bb3a9518f" width="200" />
+</p>
+
+<p align="center">
+  On the left the input image for pose estimation, in the middle the pose estimation and on the right the annotaion converted to LabelMe format
+</p>
 
 ## Installation and Setup
 ### Prerequisites
