@@ -24,6 +24,7 @@ Skeleton Annotation is a customizable pipeline designed for annotating human ske
 <p align="center">
   <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/30b797d3-5ed0-4138-a384-f7ea27d04681" width="300" />
   <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/855c3d25-10e6-43a6-ac45-478d20d392df" width="300" /> 
+  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/d82d13c6-a989-42a6-9e24-317bb3a9518f" width="300" />
 </p>
 
 ## Installation and Setup
