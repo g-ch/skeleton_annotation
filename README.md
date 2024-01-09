@@ -20,7 +20,10 @@ Skeleton Annotation is a customizable pipeline designed for annotating human ske
   <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/228a7489-5fee-4912-be95-6b828ba524ea" width="400" />
   <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/e1b0d790-6835-4257-8c42-ae0a24f477f9" width="400" /> 
 </p>
-### Original image and object/person detection
+<p align="center">
+  ### Original image and object/person detection 
+</p>
+
 <p align="center">
   <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/30b797d3-5ed0-4138-a384-f7ea27d04681" width="300" />
   <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/855c3d25-10e6-43a6-ac45-478d20d392df" width="300" /> 
