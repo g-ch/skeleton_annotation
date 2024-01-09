@@ -6,6 +6,7 @@
 3. [Installation and Setup](#installation-and-setup)
 4. [Usage](#usage)
 5. [Customisation](#customisation)
+6. [References](#references)
 
 ## Introduction
 Skeleton Annotation is a customizable pipeline designed for annotating human skeletons in image datasets. This tool is ideal for researchers and developers working in computer vision, particularly in pose estimation and person/object detection. It integrates seamlessly with popular libraries like LabelMe, offering export options for manual adjustments.
