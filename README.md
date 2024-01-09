@@ -1,70 +1,67 @@
-# Skeleton annotation
+# Skeleton Annotation
 
-## Description
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation and Setup](#installation-and-setup)
+4. [Usage](#usage)
+5. [Customisation](#customisation)
+6. [Troubleshooting](#troubleshooting)
+7. [Contributing](#contributing)
+8. [License](#license)
+9. [Contact](#contact)
 
-A pipeline to annotate skeletons on a dataset of pictures from any dataset. The pipeline consists of four distinct steps and is highly customisable. The output skeletons can also be exported into LabelMe format so they can be manually adjusted.
+## Introduction
+Skeleton Annotation is a customizable pipeline designed for annotating human skeletons in image datasets. This tool is ideal for researchers and developers working in computer vision, particularly in pose estimation and person/object detection. It integrates seamlessly with popular libraries like LabelMe, offering export options for manual adjustments.
 
 ## Features
+- **Person and Object Detection**: Utilizes customizable models for accurate detection.
+- **Image Extraction**: Capable of extracting images of specific persons or objects.
+- **Pose Prediction**: Supports pose annotation prediction with customizable models.
+- **LabelMe Integration**: Export pose annotations to LabelMe format for manual adjustments.
 
-- Person and object detection (with customisable models)
-- Extracting the image of certain persons or objects
-- Predicting the pose annotation (with customisable models)
-- Exporting the predicted pose annotation to LabelMe-readable files for manual readjustment
+## Installation and Setup
+### Prerequisites
+- Ubuntu 22.04
+- Python 3.8
+- mmengine 2.0.0
 
-## Installation and first run
+### Step-by-Step Installation
+1. **Clone Repository**: `git clone https://github.com/g-ch/skeleton_annotation.git`.
+2. **Clone Libraries**: Inside 'skeleton_annotation', clone `mmpose` and `mmdetection` libraries. Visit [MMPose Installation](https://mmpose.readthedocs.io/en/latest/installation.html) and [MMDetection Installation](https://mmdetection.readthedocs.io/en/latest/get_started.html) for more details.
+3. **Create Conda Environment**: Use the first lines in 'requirements.txt' to create an environment.
+4. **Configure Paths**: Modify the three directories in 'config.py'.
+   ![Configuration Step](https://github.com/g-ch/skeleton_annotation/assets/126026624/a225f19a-d5b7-43df-a696-56fbbdccf796)
+5. **Run Config**: Navigate to ~/Pipeline/ in the terminal and execute 'config.py' to customize detection, pose estimation, and output format settings.
+   ![Setup Process](https://github.com/g-ch/skeleton_annotation/assets/126026624/dc926c66-f232-4921-a3d7-82aef349887b)
 
-Tested on Ubuntu 22.04, python 3.8, mmengine 2.0.0
+## Usage
+1. **Prepare Dataset**: Place your images in the '0_input_dataset' folder.
+   ![Dataset Preparation](https://github.com/g-ch/skeleton_annotation/assets/126026624/9134fcb3-94f5-4995-91b9-3a796a497a87)
+2. **Execute Runner**: Run 'runner.py'. The output is verbose, showing any warnings.
+   ![Execution Step](https://github.com/g-ch/skeleton_annotation/assets/126026624/da884f0d-9e86-42b3-ab18-9444a3d9f9e6)
+3. **View Results**: Check the final results and intermediate files in the working tree.
+   ![Results](https://github.com/g-ch/skeleton_annotation/assets/126026624/fbc5f58f-105c-4c58-978f-f425c29ea4c4)
 
-### 1. Clone the repository with 'git clone https://github.com/g-ch/skeleton_annotation.git'.
+**Optional: LabelMe Output Correction**
+1. Create a new environment and install LabelMe.
+2. Open and manually adjust the .json files.
+   ![LabelMe Adjustment](https://github.com/g-ch/skeleton_annotation/assets/126026624/575d5d12-2266-4b96-a352-b4bfc17fe362)
 
-### 2. Within the folder 'skeleton_annotation' clone mmpose and mmdetection libraries, see: 
-https://mmpose.readthedocs.io/en/latest/installation.html
-https://mmdetection.readthedocs.io/en/latest/get_started.html
+## Customisation
+- **Detection**: Change the detection model in the config. Built-in models are available in the [MMDetection ModelZoo](https://mmdetection.readthedocs.io/en/latest/model_zoo.html).
+- **Cropping Images**: Adjust the threshold for creating cropped images in 'config.py'.
+- **Pose Estimation**: Customize the pose estimation model in 'config.py'. See [MMPose Configs](https://github.com/open-mmlab/mmpose/tree/main/configs/body_2d_keypoint).
+- **Pose Correction**: Choose between different .json output formats in 'config.py'.
 
-### 3. Create a conda environment with the first lines in 'requirements.txt'.
+## Troubleshooting
+(Provide common issues and solutions here)
 
-### 4. Change the three directories in 'config.py'.
-![Stap 1](https://github.com/g-ch/skeleton_annotation/assets/126026624/a225f19a-d5b7-43df-a696-56fbbdccf796)
+## Contributing
+Contributions are welcome! Please refer to our [Contribution Guidelines](CONTRIBUTION_LINK) for more information.
 
-### 5. Within the terminal cd to ~/Pipeline/ and run 'config.py'. Now you can customise the parameters for detection, pose estimation and output format.
-![Stap 2](https://github.com/g-ch/skeleton_annotation/assets/126026624/dc926c66-f232-4921-a3d7-82aef349887b)
+## License
+This project is licensed under the [LICENSE_NAME](LICENSE_LINK).
 
-### 6. Insert the desired pictures in the '0_input_dataset' folder.
-![Stap 3 simpel](https://github.com/g-ch/skeleton_annotation/assets/126026624/9134fcb3-94f5-4995-91b9-3a796a497a87)
-
-### 7. Run 'runner.py'. Output is verbose so possible warnings will be shown.
-![stap 4 simpel deel 1](https://github.com/g-ch/skeleton_annotation/assets/126026624/da884f0d-9e86-42b3-ab18-9444a3d9f9e6)
-![stap 4 simpel deel 2](https://github.com/g-ch/skeleton_annotation/assets/126026624/094421af-4f50-4829-b225-404d10d6d200)
-
-### 8. All final results and intermediate files can be found in the working tree:
-![simpel worktree](https://github.com/g-ch/skeleton_annotation/assets/126026624/fbc5f58f-105c-4c58-978f-f425c29ea4c4)
-
-**OPTIONAL** (output correction in LabelMe):
-1. Create a new environment to avoid conflicts and install labelme.
-2. Open the outputted .json file from step 8 above.
-![LabelMe simpel](https://github.com/g-ch/skeleton_annotation/assets/126026624/575d5d12-2266-4b96-a352-b4bfc17fe362)
-3. Manually re-adjust any points and save the corrected file.
-
-
-
-# Customisation
-
-## Detection
-The detection model can be easily changed by choosing a different one and entering it into the config. The built in models are found in the MMDetection ModelZoo (https://mmdetection.readthedocs.io/en/latest/model_zoo.html). If a personally trained model is prefereerd the path to this model can also be specified. 
-
-## Cropping images
-After the person detection is done, the individuals are made into seperate cropped pictures by their bounding boxes. The threshold for the creation of these cropped images is the certainty of the detection model. This can be changed in 'config.py' and should be a value between 0.0 and 1.0, representing a threshold of between 0% and 100% certainty. If it is desired to cut out other objects, line 22 in 'cut_out_bb.py' can be changed to another label. Note that this makes the next part of the pipeline useless.
-
-## Pose estimation
-Within 'config.py' the model used for the pose estimation can also be customised. For built in 2D person pose estimation models, see: https://github.com/open-mmlab/mmpose/tree/main/configs/body_2d_keypoint. This works best if also a trained state of the model, checkpoiny file, is provided. If a personally trained model is preferred the directory can be provided. Furthermore the visualisation output options can be changed, a heatmap can be added and the threshold for the visualisation of keypoints can be adjusted.
-Beware: if changing to a different annotation than the Coco-format, the .json file created for LabelMe will stop working.
-
-## Pose correction
-Within 'çonfig.py' there are two options for the format of the .json file that is created. One where solely the keypoints are visible and one where the connecting lines between the keypoints are also visualised. To alter the output it is required to manually move keypoints by drag and dropping. When the connecting lines are also visualised the endpoints of these need to be moved seperate to the keypoints by drag and dropping as well.
-
-
-
-
-
-
-
+## Contact
+For support or inquiries, please email us at [your-email@example.com](mailto:your-email@example.com) or open an issue on our [GitHub Issues page](https://github.com/g-ch/skeleton_annotation
