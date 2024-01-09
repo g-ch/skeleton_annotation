@@ -75,3 +75,6 @@ Within 'config.py' the model used for the pose estimation can also be customised
 Beware: if changing to a different annotation than the Coco-format, the .json file created for LabelMe will stop working.
 ### - **Pose Correction**: Choose between different .json output formats in 'config.py'.
 Within 'çonfig.py' there are two options for the format of the .json file that is created. One where solely the keypoints are visible and one where the connecting lines between the keypoints are also visualised. To alter the output it is required to manually move keypoints by drag and dropping. When the connecting lines are also visualised the endpoints of these need to be moved seperate to the keypoints by drag and dropping as well.
+
+## References
+1. Zhang, Arthur and Eranki, Chaitanya and Zhang, Christina and Hong, Raymond and Kalyani, Pranav and Kalyanaraman, Lochana and Gamare, Arsh and Bagad, Arnav and Esteva, Maria and Biswas, Joydeep; "UT Campus Object Dataset (CODa)", Texas Data Repository, 2023
