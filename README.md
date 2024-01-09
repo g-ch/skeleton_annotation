@@ -36,6 +36,7 @@ Skeleton Annotation is a customizable pipeline designed for annotating human ske
   On the left the input image for pose estimation, in the middle the pose estimation and on the right the annotaion converted to LabelMe format
 </p>
 
+
 ## Installation and Setup
 ### Prerequisites
 - Ubuntu 22.04
