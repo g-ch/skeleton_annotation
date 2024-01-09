@@ -17,22 +17,22 @@ Tested on Ubuntu 22.04, python 3.8, mmengine 2.0.0
 
 ### 1. git clone https://github.com/g-ch/skeleton_annotation.git
 
-### 2. Within skeleton_annotation clone mmpose and mmdetection libraries, see: 
+### 2. Within the folder 'skeleton_annotation' clone mmpose and mmdetection libraries, see: 
 https://mmpose.readthedocs.io/en/latest/installation.html
 https://mmdetection.readthedocs.io/en/latest/get_started.html
 
 ### 3. Create a conda environment with the first lines in requirements.txt
 
-### 4. Change the three directories in config.py.
+### 4. Change the three directories in 'config.py'.
 ![Stap 1](https://github.com/g-ch/skeleton_annotation/assets/126026624/a225f19a-d5b7-43df-a696-56fbbdccf796)
 
-### 5. Within the terminal cd to ~/Pipeline/ and run config.py. Now you can customise the parameters for detection, pose estimation and output format.
+### 5. Within the terminal cd to ~/Pipeline/ and run 'config.py'. Now you can customise the parameters for detection, pose estimation and output format.
 ![Stap 2](https://github.com/g-ch/skeleton_annotation/assets/126026624/dc926c66-f232-4921-a3d7-82aef349887b)
 
 ### 6. Insert the desired pictures in the '0_input_dataset' folder.
 ![Stap 3 simpel](https://github.com/g-ch/skeleton_annotation/assets/126026624/9134fcb3-94f5-4995-91b9-3a796a497a87)
 
-### 7. Run runner.py. Output is verbose so possible warnings will be shown.
+### 7. Run 'runner.py'. Output is verbose so possible warnings will be shown.
 ![stap 4 simpel deel 1](https://github.com/g-ch/skeleton_annotation/assets/126026624/da884f0d-9e86-42b3-ab18-9444a3d9f9e6)
 ![stap 4 simpel deel 2](https://github.com/g-ch/skeleton_annotation/assets/126026624/094421af-4f50-4829-b225-404d10d6d200)
 
