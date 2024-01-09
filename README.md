@@ -15,13 +15,13 @@ A pipeline to annotate skeletons on a dataset of pictures from any dataset. The 
 
 Tested on Ubuntu 22.04, python 3.8, mmengine 2.0.0
 
-### 1. git clone https://github.com/g-ch/skeleton_annotation.git
+### 1. Clone the repository with 'git clone https://github.com/g-ch/skeleton_annotation.git'.
 
 ### 2. Within the folder 'skeleton_annotation' clone mmpose and mmdetection libraries, see: 
 https://mmpose.readthedocs.io/en/latest/installation.html
 https://mmdetection.readthedocs.io/en/latest/get_started.html
 
-### 3. Create a conda environment with the first lines in requirements.txt
+### 3. Create a conda environment with the first lines in 'requirements.txt'.
 
 ### 4. Change the three directories in 'config.py'.
 ![Stap 1](https://github.com/g-ch/skeleton_annotation/assets/126026624/a225f19a-d5b7-43df-a696-56fbbdccf796)
