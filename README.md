@@ -18,8 +18,8 @@ Tested on Ubuntu 22.04, python 3.8, mmengine 2.0.0
 ### 1. git clone https://github.com/g-ch/skeleton_annotation.git
 
 ### 2. Within skeleton_annotation clone mmpose and mmdetection libraries, see: 
-    - """https://mmpose.readthedocs.io/en/latest/installation.html"""
-    - """https://mmdetection.readthedocs.io/en/latest/get_started.html"""
+https://mmpose.readthedocs.io/en/latest/installation.html
+https://mmdetection.readthedocs.io/en/latest/get_started.html
 
 ### 3. Create a conda environment with the first lines in requirements.txt
 
