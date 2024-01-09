@@ -49,19 +49,12 @@ Skeleton Annotation is a customizable pipeline designed for annotating human ske
    ![LabelMe Adjustment](https://github.com/g-ch/skeleton_annotation/assets/126026624/575d5d12-2266-4b96-a352-b4bfc17fe362)
 
 ## Customisation
-- **Detection**: Change the detection model in the config. Built-in models are available in the [MMDetection ModelZoo](https://mmdetection.readthedocs.io/en/latest/model_zoo.html).
-- **Cropping Images**: Adjust the threshold for creating cropped images in 'config.py'.
-- **Pose Estimation**: Customize the pose estimation model in 'config.py'. See [MMPose Configs](https://github.com/open-mmlab/mmpose/tree/main/configs/body_2d_keypoint).
-- **Pose Correction**: Choose between different .json output formats in 'config.py'.
-
-## Troubleshooting
-(Provide common issues and solutions here)
-
-## Contributing
-Contributions are welcome! Please refer to our [Contribution Guidelines](CONTRIBUTION_LINK) for more information.
-
-## License
-This project is licensed under the [LICENSE_NAME](LICENSE_LINK).
-
-## Contact
-For support or inquiries, please email us at [your-email@example.com](mailto:your-email@example.com) or open an issue on our [GitHub Issues page](https://github.com/g-ch/skeleton_annotation
+### - **Detection**: Change the detection model in the config. Built-in models are available in the [MMDetection ModelZoo](https://mmdetection.readthedocs.io/en/latest/model_zoo.html).
+The detection model can be easily changed by choosing a different one and entering it into the config. The built in models are found in the MMDetection ModelZoo (https://mmdetection.readthedocs.io/en/latest/model_zoo.html). If a personally trained model is prefereerd the path to this model can also be specified. 
+### - **Cropping Images**: Adjust the threshold for creating cropped images in 'config.py'.
+After the person detection is done, the individuals are made into seperate cropped pictures by their bounding boxes. The threshold for the creation of these cropped images is the certainty of the detection model. This can be changed in 'config.py' and should be a value between 0.0 and 1.0, representing a threshold of between 0% and 100% certainty. If it is desired to cut out other objects, line 22 in 'cut_out_bb.py' can be changed to another label. Note that this makes the next part of the pipeline useless.
+### - **Pose Estimation**: Customize the pose estimation and visualisation model in 'config.py'. See [MMPose Configs](https://github.com/open-mmlab/mmpose/tree/main/configs/body_2d_keypoint).
+Within 'config.py' the model used for the pose estimation can also be customised. For built in 2D person pose estimation models, see: https://github.com/open-mmlab/mmpose/tree/main/configs/body_2d_keypoint. This works best if also a trained state of the model, checkpoiny file, is provided. If a personally trained model is preferred the directory can be provided. Furthermore the visualisation output options can be changed, a heatmap can be added and the threshold for the visualisation of keypoints can be adjusted.
+Beware: if changing to a different annotation than the Coco-format, the .json file created for LabelMe will stop working.
+### - **Pose Correction**: Choose between different .json output formats in 'config.py'.
+Within 'çonfig.py' there are two options for the format of the .json file that is created. One where solely the keypoints are visible and one where the connecting lines between the keypoints are also visualised. To alter the output it is required to manually move keypoints by drag and dropping. When the connecting lines are also visualised the endpoints of these need to be moved seperate to the keypoints by drag and dropping as well.
