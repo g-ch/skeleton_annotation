@@ -6,10 +6,15 @@
 3. [Installation and Setup](#installation-and-setup)
 4. [Usage](#usage)
 5. [Customisation](#customisation)
-6. [Troubleshooting](#troubleshooting)
-7. [Contributing](#contributing)
-8. [License](#license)
-9. [Contact](#contact)
+
+<p align="center">
+  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/228a7489-5fee-4912-be95-6b828ba524ea" width="400" />
+  <img src="https://github.com/g-ch/skeleton_annotation/assets/126026624/e1b0d790-6835-4257-8c42-ae0a24f477f9" width="400" /> 
+</p>
+![2d_rect_cam0_0_2837](https://github.com/g-ch/skeleton_annotation/assets/126026624/228a7489-5fee-4912-be95-6b828ba524ea)
+![2d_rect_cam0_0_2837](https://github.com/g-ch/skeleton_annotation/assets/126026624/e1b0d790-6835-4257-8c42-ae0a24f477f9)
+![2d_rect_cam0_0_2837_0](https://github.com/g-ch/skeleton_annotation/assets/126026624/30b797d3-5ed0-4138-a384-f7ea27d04681)
+![2d_rect_cam0_0_2837_0](https://github.com/g-ch/skeleton_annotation/assets/126026624/855c3d25-10e6-43a6-ac45-478d20d392df)
 
 ## Introduction
 Skeleton Annotation is a customizable pipeline designed for annotating human skeletons in image datasets. This tool is ideal for researchers and developers working in computer vision, particularly in pose estimation and person/object detection. It integrates seamlessly with popular libraries like LabelMe, offering export options for manual adjustments.
@@ -40,7 +45,9 @@ Skeleton Annotation is a customizable pipeline designed for annotating human ske
    ![Dataset Preparation](https://github.com/g-ch/skeleton_annotation/assets/126026624/9134fcb3-94f5-4995-91b9-3a796a497a87)
 2. **Execute Runner**: Run 'runner.py'. The output is verbose, showing any warnings.
    ![Execution Step](https://github.com/g-ch/skeleton_annotation/assets/126026624/da884f0d-9e86-42b3-ab18-9444a3d9f9e6)
-3. **View Results**: Check the final results and intermediate files in the working tree.
+   ![stap 4 simpel deel 2](https://github.com/g-ch/skeleton_annotation/assets/126026624/5395c813-e99f-49d4-b984-55e46015f336)
+
+4. **View Results**: Check the final results and intermediate files in the working tree.
    ![Results](https://github.com/g-ch/skeleton_annotation/assets/126026624/fbc5f58f-105c-4c58-978f-f425c29ea4c4)
 
 **Optional: LabelMe Output Correction**
