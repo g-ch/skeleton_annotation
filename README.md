@@ -78,11 +78,6 @@ Beware: if changing to a different annotation than the Coco-format, the .json fi
 Within 'çonfig.py' there are two options for the format of the .json file that is created. One where solely the keypoints are visible and one where the connecting lines between the keypoints are also visualised. To alter the output it is required to manually move keypoints by drag and dropping. When the connecting lines are also visualised the endpoints of these need to be moved seperate to the keypoints by drag and dropping as well.
 
 ## References
-1. Zhang, Arthur and Eranki, Chaitanya and Zhang, Christina and Hong, Raymond and Kalyani, Pranav and Kalyanaraman, Lochana and Gamare, Arsh and Bagad, Arnav and Esteva, Maria and Biswas, Joydeep; "UT Campus Object Dataset (CODa)", Texas Data Repository, 2023
-
-2. @misc{mmpose2020,
-    title={OpenMMLab Pose Estimation Toolbox and Benchmark},
-    author={MMPose Contributors},
-    howpublished = {\url{https://github.com/open-mmlab/mmpose}},
-    year={2020}
-}
+1. Zhang, Arthur and Eranki, Chaitanya and Zhang, Christina and Hong, Raymond and Kalyani, Pranav and Kalyanaraman, Lochana and Gamare, Arsh and Bagad, Arnav and Esteva, Maria and Biswas, Joydeep; **"UT Campus Object Dataset (CODa)"**, Texas Data Repository, 2023
+2. MMPose Contributors, **"OpenMMLab Pose Estimation Toolbox and Benchmark"**, https://github.com/open-mmlab/mmpose, 2020
+3. Chen, Kai and Wang, Jiaqi and Pang, Jiangmiao and Cao, Yuhang and Xiong, Yu and Li, Xiaoxiao and Sun, Shuyang and Feng, Wansen and Liu, Ziwei and Xu, Jiarui and Zhang, Zheng and Cheng, Dazhi and Zhu, Chenchen and Cheng, Tianheng and Zhao, Qijie and Li, Buyu and Lu, Xin and Zhu, Rui and Wu, Yue and Dai, Jifeng and Wang, Jingdong and Shi, Jianping and Ouyang, Wanli and Loy, Chen Change and Lin, Dahua, **"{MMDetection}: Open MMLab Detection Toolbox and Benchmark"**, https://github.com/open-mmlab/mmdetection, 2019
