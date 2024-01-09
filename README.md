@@ -36,7 +36,8 @@ https://mmdetection.readthedocs.io/en/latest/get_started.html
 ![stap 4 simpel deel 1](https://github.com/g-ch/skeleton_annotation/assets/126026624/da884f0d-9e86-42b3-ab18-9444a3d9f9e6)
 ![stap 4 simpel deel 2](https://github.com/g-ch/skeleton_annotation/assets/126026624/094421af-4f50-4829-b225-404d10d6d200)
 
-
+### 8. All final results and intermediate files can be found in the working tree:
+![simpel worktree](https://github.com/g-ch/skeleton_annotation/assets/126026624/fbc5f58f-105c-4c58-978f-f425c29ea4c4)
 
 **OPTIONAL** (output correction in LabelMe):
 1. Create a new environment to avoid conflicts and install labelme.
