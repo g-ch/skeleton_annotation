@@ -79,3 +79,10 @@ Within 'çonfig.py' there are two options for the format of the .json file that 
 
 ## References
 1. Zhang, Arthur and Eranki, Chaitanya and Zhang, Christina and Hong, Raymond and Kalyani, Pranav and Kalyanaraman, Lochana and Gamare, Arsh and Bagad, Arnav and Esteva, Maria and Biswas, Joydeep; "UT Campus Object Dataset (CODa)", Texas Data Repository, 2023
+
+2. @misc{mmpose2020,
+    title={OpenMMLab Pose Estimation Toolbox and Benchmark},
+    author={MMPose Contributors},
+    howpublished = {\url{https://github.com/open-mmlab/mmpose}},
+    year={2020}
+}
