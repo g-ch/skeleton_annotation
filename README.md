@@ -39,7 +39,7 @@ Skeleton Annotation is a customizable pipeline designed for annotating human ske
 
 ## Installation and Setup
 ### Prerequisites
-- Ubuntu 22.04
+- Ubuntu system
 - Python 3.8
 - mmengine 2.0.0
 
