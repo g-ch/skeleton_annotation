@@ -30,7 +30,7 @@ for filename in os.listdir(folder_path):
                     save_path = f'2_cut_out_bb/{img_name}_{j}.jpg'
                     cropped_img.save(save_path)
                     j += 1
-                    print(f'Made {j} cropped img of {img_name}')
+            print(f'Made {j} cropped img of {img_name}')
 
             if j == 0:
                 img_name, _ = os.path.splitext(filename)
